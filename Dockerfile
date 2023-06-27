@@ -1,14 +1,11 @@
 FROM tensorflow/tensorflow:latest-gpu
 
-COPY ./API/main.py .
-COPY ./API/inference.py .
-COPY ./Models/modelGPT ./Models/modelGPT
-COPY ./Models/modelDiffusion ./Models/modelDiffusion
-COPY ./API/index.html .
-COPY ./API/lyrics.html .
-COPY requirements.txt .
+RUN apt-get update
+RUN apt-get install -y git
+RUN apt-get install -y git-lfs
+RUN git clone https://github.com/RecklessFox/exerciseAI.git
+RUN mv exerciseAI/Models .
+RUN mv exerciseAI/* .
+
 
 RUN pip install -r requirements.txt
-
-
-CMD ["python", "./main.py"]
