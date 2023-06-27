@@ -4,7 +4,7 @@ RUN apt-get update
 RUN apt-get install -y git
 RUN apt-get install -y git-lfs
 RUN git clone https://github.com/RecklessFox/exerciseAI.git
-RUN mv exerciseAI/Models .
+RUN mv exerciseAI/Models/modelGPT modelGPT
 RUN mv exerciseAI/* .
 
 
