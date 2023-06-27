@@ -1,3 +1,5 @@
+Web server running a song and album cover generator APIs in the genre of Taylor Swift
+
 build docker image with Dockerfile:  
     ```docker build -t songgenerator .```
 
