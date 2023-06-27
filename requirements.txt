@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pandas
+openai
+transformers
+torch
+diffusers
+accelerate
+jinja2
