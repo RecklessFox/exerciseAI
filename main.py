@@ -10,7 +10,7 @@ import os
 
 app = FastAPI()
 templates = Jinja2Templates(directory="")
-model_pathGPT = '../Models/modelGPT'
+model_pathGPT = 'modelGPT'
 
 @app.get("/test", response_class=HTMLResponse)
 async def hello(request: Request):
@@ -24,14 +24,21 @@ async def hello(request: Request):
 
 @app.get("/inferText/{sequence}", response_class=HTMLResponse, status_code = 200)
 def infer(request: Request, sequence:str):
-    max_len = 500
+    max_len = 800
     lyrics = generate_text(model_pathGPT, sequence, max_len)
-    return templates.TemplateResponse("lyrics.html", {"request": request, "lyrics": lyrics})
+    #return templates.TemplateResponse("lyrics.html", {"request": request, "lyrics": lyrics})
+    return FileResponse("result.txt")
 
 @app.get("/inferImage/{sequence}", response_class=HTMLResponse, status_code = 200)
 async def infer(request: Request, sequence: str):
     generate_image(sequence)
     return FileResponse("cover.jpg")
+
+
+@app.get("/getText", response_class=HTMLResponse, status_code = 200)
+async def infer(request: Request):
+    return FileResponse("400len.txt")
+
 
 
 if __name__ == "__main__":

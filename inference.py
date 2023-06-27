@@ -27,7 +27,9 @@ def generate_text(model_path, sequence, max_length):
         top_k=50,
         top_p=0.95,
     )
-    return(tokenizer.decode(final_outputs[0], skip_special_tokens=True))
+    result = tokenizer.decode(final_outputs[0], skip_special_tokens=True)
+    with open("result.txt", "w", encoding = "utf8") as f:
+        f.write(result)
 
 def generate_image(sequence):
     
