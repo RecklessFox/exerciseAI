@@ -4,7 +4,7 @@ build docker image with Dockerfile:
 run web server on port 8000 with:
     docker-compose up
 
-go to localhost:8000 (ideally on a web browser) and follow instructions on how to use the app
+go to localhost:8000 (ideally on a web browser) and follow instructions on how to use the web server
 
 endpoints:
     localhost:8000 -> home
